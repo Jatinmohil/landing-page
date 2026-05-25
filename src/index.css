@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --forest: #0b3d2e;
+    --leaf: #1f7a4d;
+    --gold: #e8b923;
+    --earth: #8b5e3c;
+    --cream: #f7f8f5;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-cream font-body text-forest-900 antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background: rgba(31, 122, 77, 0.85);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-5 sm:px-8;
+  }
+
+  .section {
+    @apply py-20 md:py-28;
+  }
+
+  /* Glassmorphism card */
+  .glass {
+    @apply border border-white/40 bg-white/60 backdrop-blur-xl;
+  }
+
+  .glass-dark {
+    @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-leaf/20 bg-leaf/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-leaf-600;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-leaf-500 via-leaf-400 to-gold-500 bg-clip-text text-transparent;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: #eef3ef;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#1f7a4d, #0b3d2e);
+  border-radius: 999px;
+  border: 2px solid #eef3ef;
+}
