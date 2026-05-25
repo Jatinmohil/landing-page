@@ -19,6 +19,7 @@ export const translations = {
       home: 'Home',
       services: 'Services',
       stories: 'Success Stories',
+      pricing: 'Pricing',
       faq: 'FAQ',
       about: 'About',
       contact: 'Contact',
@@ -213,6 +214,7 @@ export const translations = {
       subtitle: 'Tell us a little about your plan and our experts will reach out within 24 hours.',
       form: {
         name: 'Full Name',
+        email: 'Email Address',
         phone: 'Phone Number',
         location: 'Your Location',
         capacity: 'Planned Capacity',
@@ -239,6 +241,35 @@ export const translations = {
       made: 'Empowering rural India, one farm at a time.',
     },
     stickyCta: 'Free Consultation',
+    consultationPricing: {
+      eyebrow: 'Direct Consultation',
+      title: 'Consultancy Calling Fees',
+      subtitle: 'Schedule a direct call session with our poultry experts to resolve your queries instantly.',
+      cta: 'Book Call Now',
+      plans: [
+        {
+          name: 'Quick Call',
+          duration: '15 Minutes',
+          price: '₹1,000',
+          desc: 'Best for quick questions, basic setup queries, and general advice.',
+          features: ['One-on-one expert call', 'Immediate basic audit', 'Quick setup advice', 'WhatsApp follow-up'],
+        },
+        {
+          name: 'Detailed Call',
+          duration: '30 Minutes',
+          price: '₹1,500',
+          desc: 'Ideal for detailed query resolution, feed plans, and biosecurity questions.',
+          features: ['30-min premium call', 'Feed & FCR basic guidance', 'Vaccination schedule overview', 'Interactive Q&A session'],
+        },
+        {
+          name: 'Full Briefing',
+          duration: 'Full Brief Session',
+          price: '₹2,000',
+          desc: 'Complete end-to-end discussion on farm setup, budgets, and marketing plans.',
+          features: ['Comprehensive detailed session', 'Custom investment planning', 'Detailed land layout guidelines', 'Direct Q&A with Senior Consultant'],
+        },
+      ],
+    },
   },
 
   pa: {
@@ -247,6 +278,7 @@ export const translations = {
       home: 'ਹੋਮ',
       services: 'ਸੇਵਾਵਾਂ',
       stories: 'ਸਫਲ ਕਹਾਣੀਆਂ',
+      pricing: 'ਕੀਮਤਾਂ',
       faq: 'ਸਵਾਲ-ਜਵਾਬ',
       about: 'ਸਾਡੇ ਬਾਰੇ',
       contact: 'ਸੰਪਰਕ',
@@ -441,6 +473,7 @@ export const translations = {
       subtitle: 'ਆਪਣੀ ਯੋਜਨਾ ਬਾਰੇ ਦੱਸੋ, ਸਾਡੇ ਮਾਹਿਰ 24 ਘੰਟਿਆਂ ਵਿੱਚ ਸੰਪਰਕ ਕਰਨਗੇ।',
       form: {
         name: 'ਪੂਰਾ ਨਾਮ',
+        email: 'ਈਮੇਲ ਪਤਾ',
         phone: 'ਫ਼ੋਨ ਨੰਬਰ',
         location: 'ਤੁਹਾਡੀ ਥਾਂ',
         capacity: 'ਯੋਜਨਾਬੱਧ ਸਮਰੱਥਾ',
@@ -467,5 +500,34 @@ export const translations = {
       made: 'ਪੇਂਡੂ ਭਾਰਤ ਨੂੰ ਤਾਕਤਵਰ ਬਣਾਉਂਦੇ ਹੋਏ, ਇੱਕ-ਇੱਕ ਫਾਰਮ।',
     },
     stickyCta: 'ਮੁਫ਼ਤ ਸਲਾਹ',
+    consultationPricing: {
+      eyebrow: 'ਸਿੱਧੀ ਸਲਾਹ',
+      title: 'ਸਲਾਹਕਾਰ ਕਾਲਾਂ ਦੀ ਫੀਸ',
+      subtitle: 'ਆਪਣੇ ਸਵਾਲਾਂ ਦੇ ਤੁਰੰਤ ਹੱਲ ਲਈ ਸਾਡੇ ਪੋਲਟਰੀ ਮਾਹਿਰਾਂ ਨਾਲ ਸਿੱਧੀ ਗੱਲਬਾਤ ਚੁਣੋ।',
+      cta: 'ਹੁਣੇ ਕਾਲ ਬੁੱਕ ਕਰੋ',
+      plans: [
+        {
+          name: 'ਤੁਰੰਤ ਕਾਲ',
+          duration: '15 ਮਿੰਟ',
+          price: '₹1,000',
+          desc: 'ਤੁਰੰਤ ਸਵਾਲਾਂ, ਬੁਨਿਆਦੀ ਸੈੱਟਅੱਪ ਸਵਾਲਾਂ ਅਤੇ ਆਮ ਸਲਾਹ ਲਈ ਸਭ ਤੋਂ ਵਧੀਆ।',
+          features: ['ਮਾਹਿਰ ਨਾਲ ਸਿੱਧੀ ਗੱਲਬਾਤ', 'ਤੁਰੰਤ ਬੁਨਿਆਦੀ ਜਾਂਚ', 'ਤੁਰੰਤ ਸੈੱਟਅੱਪ ਸਲਾਹ', 'ਵਟਸਐਪ ਫਾਲੋ-ਅੱਪ'],
+        },
+        {
+          name: 'ਵਿਸਥਾਰਪੂਰਵਕ ਕਾਲ',
+          duration: '30 ਮਿੰਟ',
+          price: '₹1,500',
+          desc: 'ਵਿਸਥਾਰਪੂਰਵਕ ਸਵਾਲਾਂ ਦੇ ਹੱਲ, ਫੀਡ ਯੋਜਨਾਵਾਂ ਅਤੇ ਬਾਇਓਸਿਕਿਉਰਿਟੀ ਲਈ ਵਧੀਆ।',
+          features: ['30 ਮਿੰਟ ਦੀ ਪ੍ਰੀਮੀਅਮ ਕਾਲ', 'ਫੀਡ ਤੇ FCR ਬੁਨਿਆਦੀ ਸਲਾਹ', 'ਟੀਕਾਕਰਣ ਸਮਾਂ-ਸਾਰਣੀ ਦੀ ਜਾਣਕਾਰੀ', 'ਸਵਾਲ-ਜਵਾਬ ਸੈਸ਼ਨ'],
+        },
+        {
+          name: 'ਪੂਰਾ ਬ੍ਰੀਫਿੰਗ ਸੈਸ਼ਨ',
+          duration: 'ਪੂਰਾ ਬ੍ਰੀਫ ਸੈਸ਼ਨ',
+          price: '₹2,000',
+          desc: 'ਫਾਰਮ ਸੈੱਟਅੱਪ, ਬਜਟ ਅਤੇ ਮਾਰਕੀਟਿੰਗ ਯੋਜਨਾਵਾਂ ਉੱਤੇ ਪੂਰੀ ਚਰਚਾ।',
+          features: ['ਵਿਸਥਾਰਪੂਰਵਕ ਵਿਆਪਕ ਸੈਸ਼ਨ', 'ਨਿਵੇਸ਼ ਦੀ ਪੂਰੀ ਯੋਜਨਾ', 'ਜ਼ਮੀਨ ਦੇ ਨਕਸ਼ੇ ਬਾਰੇ ਸਲਾਹ', 'ਸੀਨੀਅਰ ਸਲਾਹਕਾਰ ਨਾਲ ਸਿੱਧੀ ਗੱਲਬਾਤ'],
+        },
+      ],
+    },
   },
 }

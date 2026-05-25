@@ -9,12 +9,14 @@ import {
   CheckCircle2,
   Download,
   CalendarCheck,
+  AlertCircle,
 } from 'lucide-react'
 import SectionHeading from './ui/SectionHeading'
 import Button from './ui/Button'
 import { useLanguage } from '../i18n/LanguageContext'
 import { BRAND } from '../i18n/translations'
 import { waLink, telLink, mailLink, mapEmbed } from '../lib/links'
+import { sendInquiry } from '../lib/submitForm'
 
 function downloadGuide() {
   const text = `PoultryGrowth India — Poultry Business Starter Guide
@@ -65,17 +67,23 @@ export default function Contact() {
   const c = t.contact
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
-  const [form, setForm] = useState({ name: '', phone: '', location: '', capacity: '', message: '' })
+  const [error, setError] = useState('')
+  const [form, setForm] = useState({ name: '', email: '', phone: '', location: '', capacity: '', message: '' })
 
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
+    setError('')
     setSending(true)
-    setTimeout(() => {
-      setSending(false)
+    const { success, message } = await sendInquiry(new FormData(e.target))
+    setSending(false)
+    if (success) {
       setSent(true)
-    }, 900)
+      setForm({ name: '', email: '', phone: '', location: '', capacity: '', message: '' })
+    } else {
+      setError(message)
+    }
   }
 
   const inputClass =
@@ -130,43 +138,61 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={onSubmit} className="flex flex-col gap-4">
+                {/* Honeypot spam protection (hidden from users) */}
+                <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-forest-900/70">{c.form.name}</label>
-                    <input required value={form.name} onChange={update('name')} className={inputClass} placeholder="—" />
+                    <input required name="name" value={form.name} onChange={update('name')} className={inputClass} placeholder="—" />
                   </div>
+                  <div>
+                    <label className="mb-1.5 block text-sm font-medium text-forest-900/70">{c.form.email}</label>
+                    <input
+                      required
+                      type="email"
+                      name="email"
+                      value={form.email}
+                      onChange={update('email')}
+                      className={inputClass}
+                      placeholder="—"
+                    />
+                  </div>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-forest-900/70">{c.form.phone}</label>
                     <input
                       required
                       type="tel"
+                      name="phone"
                       value={form.phone}
                       onChange={update('phone')}
                       className={inputClass}
                       placeholder="+91"
                     />
                   </div>
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-forest-900/70">{c.form.location}</label>
-                    <input value={form.location} onChange={update('location')} className={inputClass} placeholder="—" />
+                    <input name="location" value={form.location} onChange={update('location')} className={inputClass} placeholder="—" />
                   </div>
-                  <div>
-                    <label className="mb-1.5 block text-sm font-medium text-forest-900/70">{c.form.capacity}</label>
-                    <select value={form.capacity} onChange={update('capacity')} className={inputClass}>
-                      <option value="">—</option>
-                      {c.form.capacityOptions.map((o) => (
-                        <option key={o} value={o}>
-                          {o}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                </div>
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium text-forest-900/70">{c.form.capacity}</label>
+                  <select name="capacity" value={form.capacity} onChange={update('capacity')} className={inputClass}>
+                    <option value="">—</option>
+                    {c.form.capacityOptions.map((o) => (
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
+                    ))}
+                  </select>
                 </div>
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-forest-900/70">{c.form.message}</label>
                   <textarea
+                    required
+                    name="message"
                     value={form.message}
                     onChange={update('message')}
                     rows={4}
@@ -177,6 +203,11 @@ export default function Contact() {
                 <Button type="submit" size="lg" icon={Send} iconRight className="mt-1 w-full" disabled={sending}>
                   {sending ? c.form.sending : c.form.submit}
                 </Button>
+                {error && (
+                  <p className="flex items-center gap-2 rounded-xl bg-red-50 px-4 py-2.5 text-sm font-medium text-red-600">
+                    <AlertCircle className="h-4 w-4 shrink-0" /> {error}
+                  </p>
+                )}
               </form>
             )}
           </motion.div>

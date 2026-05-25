@@ -5,6 +5,7 @@ import Stats from './components/Stats'
 import Services from './components/Services'
 import Process from './components/Process'
 import Investment from './components/Investment'
+import ConsultationPricing from './components/ConsultationPricing'
 import Testimonials from './components/Testimonials'
 import Gallery from './components/Gallery'
 import Transformation from './components/Transformation'
@@ -25,6 +26,7 @@ export default function App() {
           <Services />
           <Process />
           <Investment />
+          <ConsultationPricing />
           <Testimonials />
           <Gallery />
           <Transformation />
